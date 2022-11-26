@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+* {
+  background-color: #D1D1D1;
+  /* animation: load-page 1s; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --main: #D1D1D1
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.menu-item {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+
+/* Position and sizing of burger button */
+.header {
+  border: black 1px;
+  display: flex;
+  width: auto;
+  position:;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.bm-burger-button {
+  position: fixed;
+  width: 40px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #4668ff;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #a90000;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #373a47;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: var(--main);
+  padding: 2.5em 0;
+  font-size: 2.5em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+/* .bm-morph-shape {
+  fill: #373a47;
+} */
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: black;
+  padding: 0.8em;
+
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: 4668ff;
+
+}
+
+@keyframes nav-load {
+  0% {
+    transform: translateY(-100%);
   }
-  to {
-    transform: rotate(360deg);
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes load-page {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0%);
   }
 }
