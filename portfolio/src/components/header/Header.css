@@ -1,49 +1,105 @@
+:root {
+	--hover-color: #C0EEF2;
+	--font-color: #E9F8F9;
+}
+
+
 .mainHeader {
-  background-color: #27496D;
+  background-color: #537FE7;
   display: flex;
-  justify-content: space-evenly ;
   margin-inline: 10px;
   border-radius: 5px;
-  border-color: azure;
   border-width: 1px;
-  
 }
+
+.divLinkInside {
+	display: flex;
+}
+
+
+
 .homeBtn {
   background: none;
-	color: inherit;
+	color: var(--font-color);
 	border: none;
-	padding: 0;
+	padding: 10px;
 	font: inherit;
+	font-family: 'Josefin Sans', sans-serif;
 	cursor: pointer;
 	outline: inherit;
 }
+
+.homeBtn:hover {
+	color: var(--hover-color)
+}
+
 
 .aboutBtn {
   background: none;
-	color: inherit;
+	color: var(--font-color);
 	border: none;
-	padding: 0;
+	padding: 10px;
 	font: inherit;
+	font-family: 'Josefin Sans', sans-serif;
 	cursor: pointer;
 	outline: inherit;
 }
+
+.aboutBtn:hover {
+	color: var(--hover-color)
+}
+
 
 .projectsBtn {
   background: none;
-	color: inherit;
+	color: var(--font-color);
 	border: none;
-	padding: 0;
+	padding: 10px;
 	font: inherit;
+	font-family: 'Josefin Sans', sans-serif;
 	cursor: pointer;
 	outline: inherit;
 }
 
+.projectsBtn:hover {
+	color: var(--hover-color)
+}
+
+
 .contactsBtn {
   background: none;
-	color: inherit;
+	color: var(--font-color);
 	border: none;
-	padding: 0;
+	padding: 10px;
 	font: inherit;
+	font-family: 'Josefin Sans', sans-serif;
 	cursor: pointer;
 	outline: inherit;
+}
+
+.contactsBtn:hover {
+	color: var(--hover-color)
+}
+
+.divSocialBtns {
+	background-color: red;
+	display: flex;
+}
+.linkedinBtn {
+	text-decoration: none;
+	color: aliceblue;
+	padding: 10px;
+}
+
+.linkedinBtn:hover {
+	color: var(--hover-color);
+}
+.githubBtn {
+	text-decoration: none;
+	color: aliceblue;
+	padding: 10px;
+}
+
+.githubBtn:hover {
+	color: var(--hover-color);
 }
