@@ -1,0 +1,49 @@
+.mainHeader {
+  background-color: #27496D;
+  display: flex;
+  justify-content: space-evenly ;
+  margin-inline: 10px;
+  border-radius: 5px;
+  border-color: azure;
+  border-width: 1px;
+  
+}
+.homeBtn {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.aboutBtn {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.projectsBtn {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.contactsBtn {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}

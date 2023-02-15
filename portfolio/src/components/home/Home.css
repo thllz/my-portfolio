@@ -1,0 +1,21 @@
+.mainHome {
+  justify-content: center;
+  border: 10px red;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+
+.textColor {
+  color: #00909E;
+}
+.mainText {
+  border: 0cm;
+}
+
+.mainText2 {
+  margin-left: 50px;
+}
+
+.mainText3 {
+  margin-left: 100px;
+}
