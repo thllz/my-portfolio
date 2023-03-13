@@ -5,7 +5,7 @@ export default function Projects() {
   return (
     <>
       <Header />
-      <div>Projects</div>
+      <div>Projects will be added soon</div>
     </>
   )
 }

@@ -1,0 +1,29 @@
+.mainDiv {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  margin: auto;
+  width: 90%;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+
+.aboutMeTitle {
+  font-family: 'Courier New', Courier, monospace;
+  animation: intro-text 0.5s;
+
+}
+.aboutMeText {
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: 100px;
+  animation: intro-text 1.1s;
+
+}
+
+@keyframes intro-text {
+  from {
+    transform: translateX(-100px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

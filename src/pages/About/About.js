@@ -1,21 +1,16 @@
 import React from 'react'
 import Header from '../../components/Header/Header'
+import './About.css'
 
 export default function About() {
   return (
     <>
       <Header />
       <div className='mainDiv'>
-        <h1 className='aboutMeTitle'>Sobre mim</h1>
+        <h1 className='aboutMeTitle'>Sobre mim:</h1>
         <h2 className='aboutMeText'>
-          Lorem ipsum dolor sit amet.
-          Ex nesciunt cumque et ipsum optio
-          aut nisi laborum non fugit sint nam
-          expedita quos. A pariatur dignissimos
-          qui ipsum voluptate qui nemo velit
-          qui amet repellendus. Eum possimus
-          dolore ea velit quis in perspiciatis
-          omnis est nobis natus rem numquam quibusdam.
+          Mineiro, de Belo Horizonte. Sou eu: Thelisom Souto. Tenho 22 anos de idade, apaixonado por tecnologia desde que me entendo por gente.
+          Cresci envolvido com computadores e foi por onde criei interesse pela coisa. [more text soon...]
         </h2>
       </div>
     </>

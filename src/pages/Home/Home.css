@@ -1,10 +1,9 @@
 .mainHome {
   justify-content: center;
-  border: 10px red;
-  margin-left: 10%;
-  margin-top: 10%;
+  margin: auto;
   width: 90%;
-  height: 90%;
+  margin-top: 50px;
+  border-radius: 5px;
 }
 
 .textColor {
