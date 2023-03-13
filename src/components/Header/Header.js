@@ -8,10 +8,10 @@ export default function Header() {
     <div>
       <div className='mainHeader'>
         <div className='divLinkInside'>
-          <Link className='homeBtn' to='/'>Home</Link>
-          <Link className='aboutBtn' to='/aboutme'>About</Link>
-          <Link className='projectsBtn' to='/projects'>Projects</Link>
-          <Link className='contactsBtn' to='/contacts'>Contacts</Link>
+          <Link id='link' className='homeBtn' to='/'>Home</Link>
+          <Link id='link' className='aboutBtn' to='/aboutme'>About</Link>
+          <Link id='link' className='projectsBtn' to='/projects'>Projects</Link>
+          <Link id='link' className='contactsBtn' to='/contacts'>Contacts</Link>
         </div>
         <div className='divSocialBtns'>
           <a className='linkedinBtn' href='https://www.linkedin.com/in/thelisom/' target='_tab'>
