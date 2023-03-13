@@ -1,0 +1,112 @@
+:root {
+	--hover-color: #C0EEF2;
+	--font-color: #E9F8F9;
+	--background-color: #18182379;
+}
+
+
+.mainHeader {
+  background-color: var(--background-color);
+	display: flex;
+  margin-inline: 5%;
+  border-radius: 5px;
+  border-width: 1px;
+	flex-direction: row;
+	align-items: center;
+	margin: 20px 15px 20px 20px; 
+}
+
+.divLinkInside {
+	justify-content: flex-start;
+}
+.divSocialBtns {
+	justify-content: flex-end;
+}
+
+
+/* Routes buttons  */
+.homeBtn {
+  background: none;
+	color: var(--font-color);
+	border: none;
+	padding: 10px;
+	font: inherit;
+	font-family: 'Josefin Sans', sans-serif;
+	cursor: pointer;
+	outline: inherit;
+	text-decoration: none;
+}
+.aboutBtn {
+	background: none;
+	color: var(--font-color);
+	border: none;
+	padding: 10px;
+	font: inherit;
+	font-family: 'Josefin Sans', sans-serif;
+	cursor: pointer;
+	outline: inherit;
+	text-decoration: none;
+}
+.projectsBtn {
+	background: none;
+	color: var(--font-color);
+	border: none;
+	padding: 10px;
+	font: inherit;
+	font-family: 'Josefin Sans', sans-serif;
+	cursor: pointer;
+	outline: inherit;
+	text-decoration: none;
+}
+.contactsBtn {
+  background: none;
+	color: var(--font-color);
+	border: none;
+	padding: 10px;
+	font: inherit;
+	font-family: 'Josefin Sans', sans-serif;
+	cursor: pointer;
+	outline: inherit;
+	text-decoration: none;
+}
+
+/* Routes links effects */
+.homeBtn:hover {
+	color: var(--hover-color);
+	text-shadow: 0 0 var(--hover-color);
+}
+.aboutBtn:hover {
+	color: var(--hover-color);
+	text-shadow: 0 0 var(--hover-color);
+}
+.projectsBtn:hover {
+	color: var(--hover-color);
+	text-shadow: 0 0 var(--hover-color)
+}
+.contactsBtn:hover {
+	color: var(--hover-color);
+	text-shadow: 0 0 var(--hover-color)
+}
+
+
+/* Social media buttons */
+.linkedinBtn {
+	text-decoration: none;
+	color: aliceblue;
+	padding: 10px;
+}
+
+.githubBtn {
+	text-decoration: none;
+	color: aliceblue;
+	padding: 10px;
+}
+
+
+/* Social media hover */
+.linkedinBtn:hover {
+	color: var(--hover-color);
+}
+.githubBtn:hover {
+	color: var(--hover-color);
+}

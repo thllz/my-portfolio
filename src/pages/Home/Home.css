@@ -1,0 +1,39 @@
+.mainHome {
+  justify-content: center;
+  border: 10px red;
+  margin-left: 10%;
+  margin-top: 10%;
+  width: 90%;
+  height: 90%;
+}
+
+.textColor {
+  color: #00909E;
+}
+.mainText {
+  border: 0cm;
+  animation: intro-text 0.5s;
+}
+
+.mainText2 {
+  margin-left: 50px;
+  animation: intro-text 0.8s;
+
+}
+
+.mainText3 {
+  margin-left: 100px;
+  animation: intro-text 1.1s;
+
+}
+
+/* keyframes */
+
+@keyframes intro-text {
+  from {
+    transform: translateX(-100px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
