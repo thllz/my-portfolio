@@ -1,9 +1,16 @@
+.personalPhoto {
+  width: 200px;
+  height: 500px;
+}
+
 .mainHome {
   justify-content: center;
   margin: auto;
   width: 90%;
   margin-top: 50px;
   border-radius: 5px;
+  /* display: flex; */
+  /* flex-direction: column; */
 }
 
 .textColor {

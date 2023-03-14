@@ -1,0 +1,51 @@
+.mainDiv {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  margin: auto;
+  width: 90%;
+  margin-top: 50px;
+  border-radius: 5px;
+  /* background-color: blue; */
+}
+
+.mainContacts {
+  display: flex;
+  justify-content: space-between;
+}
+
+.emailBox{
+  display: flex;
+  gap: 20px;
+  /* background-color: red; */
+  margin: auto;
+  width: 20%;
+}
+
+.emailIcon {
+  align-self: center;
+}
+.emailText {
+  width: 235px;
+  /* background-color: green; */
+}
+
+.wppBox {
+  display: flex;
+  margin: auto;
+  gap: 20px;
+  /* background-color: red; */
+  height: 40px;
+}
+.wppIcon {
+  align-self: center;
+  /* margin-left: 50%; */
+}
+
+.wppNumber {
+  /* background-color: red; */
+  width: 120px;
+  align-self: center;
+}
+.socialTag {
+  background-color: red;
+}

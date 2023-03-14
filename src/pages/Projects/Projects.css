@@ -1,0 +1,8 @@
+.mainDiv {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  margin: auto;
+  width: 90%;
+  margin-top: 50px;
+  border-radius: 5px;
+}

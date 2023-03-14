@@ -15,6 +15,7 @@
 	flex-direction: row;
 	align-items: center;
 	margin: 20px 15px 20px 20px; 
+	justify-content: space-between;
 }
 
 .divLinkInside {
@@ -72,22 +73,6 @@
 }
 
 /* Routes links effects */
-/* .homeBtn:hover {
-	color: var(--hover-color);
-	text-shadow: 0 0 var(--hover-color);
-}
-.aboutBtn:hover {
-	color: var(--hover-color);
-	text-shadow: 0 0 var(--hover-color);
-}
-.projectsBtn:hover {
-	color: var(--hover-color);
-	text-shadow: 0 0 var(--hover-color)
-}
-.contactsBtn:hover {
-	color: var(--hover-color);
-	text-shadow: 0 0 var(--hover-color)
-} */
 
 #link {
 	position: relative;
@@ -105,7 +90,7 @@ background-color: #fff;
 border-radius: 4px;
 scale: 0.1;
 transform-origin: center;
-transition: scale 0.25s;
+transition: scale 0.50s;
 }
 
 #link:hover::before {
