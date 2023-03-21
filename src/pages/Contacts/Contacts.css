@@ -1,3 +1,10 @@
+:root {
+	--hover-color: #C0EEF2;
+	--font-color: #E9F8F9;
+	--background-color: #18182379;
+  --font-courier: 'Courier New', Courier, monospace;
+}
+
 .mainDiv {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(10px);
@@ -5,7 +12,6 @@
   width: 90%;
   margin-top: 50px;
   border-radius: 5px;
-  /* background-color: blue; */
 }
 
 .mainContacts {
@@ -13,39 +19,123 @@
   justify-content: space-between;
 }
 
+/* emailInfo */
+
 .emailBox{
   display: flex;
   gap: 20px;
-  /* background-color: red; */
+  background-color: gray;
+  border-radius: 5px;
   margin: auto;
-  width: 20%;
+  width: 25%;
+  justify-content: center;
 }
 
 .emailIcon {
   align-self: center;
+  
 }
 .emailText {
-  width: 235px;
-  /* background-color: green; */
+  width: 250px;
+  font-family: var(--font-courier);
+
 }
+
+/* whatsapp info */
 
 .wppBox {
   display: flex;
-  margin: auto;
   gap: 20px;
-  /* background-color: red; */
-  height: 40px;
+  background-color: gray;
+  border-radius: 5px;
+  margin: auto;
+  width: 25%;
+  justify-content: center;
 }
+
 .wppIcon {
   align-self: center;
-  /* margin-left: 50%; */
 }
 
 .wppNumber {
-  /* background-color: red; */
-  width: 120px;
+  font-family: var(--font-courier);
+  width: 145px;
   align-self: center;
 }
-.socialTag {
-  background-color: red;
+
+/* socialInfo */
+
+.socialLinks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.linkedinBox {
+  display: flex;
+  gap: 20px;
+  background-color: gray;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 10px;
+  width: 25%;
+  justify-content: center;
+  align-items: center;
+}
+
+.linkedinBtnContacts:hover {
+	color: var(--hover-color);
+}
+
+
+.linkedinBtnContacts {
+	text-decoration: none;
+	color: aliceblue;
+	padding: 10px;
+  scale: 100px;
+}
+
+.githubBox{
+  display: flex;
+  gap: 20px;
+  background-color: gray;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 10px;
+  width: 25%;
+  align-items: center;
+  justify-content: center;
+} 
+
+.githubBtnContacts {
+	text-decoration: none;
+	color: aliceblue;
+	padding: 10px;
+}
+
+.githubBtnContacts:hover {
+	color: var(--hover-color);
+}
+
+.formTextHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.mainFormContact {
+  display: flex;
+  flex-direction: column;
+}
+
+.formContact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  margin: auto;
+  width: 50%;
 }
