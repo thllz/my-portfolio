@@ -5,4 +5,26 @@
   width: 90%;
   margin-top: 50px;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
+
+.projectCover{
+  width: 20%;  
+}
+
+/* .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+.grid-item {
+  box-shadow: 0 0 15px rgba(105, 95, 95, 0.326);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  font-size: 20px;
+  width: 80%;
+  height: 100%;
+  text-align: center;
+} */
