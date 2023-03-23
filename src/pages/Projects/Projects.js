@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import Header from '../../components/Header/Header'
 import './Projects.css'
 import mock from '../../db/projectsMock'
-import 'bootstrap/dist/css/bootstrap.css';
-import Carousel from 'react-bootstrap/Carousel';
+import Slider from "react-slick";
+import Modal from 'react-modal';
 
 export default function Projects() {
 
@@ -11,6 +11,7 @@ export default function Projects() {
   const [fund, setFund] = useState(false);
   const [front, setFront] = useState(false);
   const [back, setBack] = useState(false);
+  const [getUrl, setGetUrl] = useState('');
 
   const starProjects = mock.filter((project) => project.star === 1);
   const fundProjects = mock.filter((project) => project.class === 'fundamentos');
@@ -42,81 +43,123 @@ export default function Projects() {
     setBack(true);
   }
 
+  
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  const handleGetUrl = (event) => {
+    const { name } = event.target;
+    const project = mock.find((p) => p.name === name);
+    if (!project.url.includes('O Projeto')) return setGetUrl(project.url);
+  }
+
+  const openModal = (event) => {
+    handleGetUrl(event)
+    setIsOpen(true);
+  }
+
+  const afterOpenModal = () => {
+
+  }
+
+  const closeModal = () => {
+    setIsOpen(false);
+  }
+  const settings = {
+    infinite: true,
+    speed: 5000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    pauseOnHover: true,
+    centerMode: true,
+    touchMove: false,
+  };
+
   return (
     <>
       <Header />
       <div className='mainDiv'>
         <h4>Projetos</h4>
-        <div>
-          <button onClick={ handleShowStarred }>Favoritos</button>
-          <button onClick={ handleShowFund }>Fundamentos</button>
-          <button onClick={ handleShowFront }>Front-end</button>
-          <button onClick={ handleShowBack }>Back-end</button>
+        <div className='divBtnsProjects'>
+          <button className='btnProjectsFilter' onClick={ handleShowStarred }>Favoritos</button>
+          <button className='btnProjectsFilter' onClick={ handleShowFund }>Fundamentos</button>
+          <button className='btnProjectsFilter' onClick={ handleShowFront }>Front-end</button>
+          <button className='btnProjectsFilter' onClick={ handleShowBack }>Back-end</button>
         </div>
         { star &&
-          <label className='fundLabel'>
-            <p>Favoritos</p>
-            <Carousel pause fade>
+          <label>
+            <Slider { ...settings } className='carouselMain'>
               { starProjects.map((project) => (
-                <Carousel.Item interval={5000} style={ { width: '70%'} }>
-                  <img className='projectCover' src={ project.img } alt='project cover' />
-                  <Carousel.Caption>
+                <div className='itemCarousel'>
+                  <img className='projectCover' onClick={ openModal } src={ project.img } name={ project.name } alt='project cover' />
+                  <div className='projectTitle'>
                     <p>{ project.name }</p>
                     <p>Clique para ver mais...</p>
-                  </Carousel.Caption>
-                </Carousel.Item>
+                  </div>
+                </div>
               )) }
-            </Carousel>
+            </Slider>
           </label>
         }
         { fund &&
-          <label className='fundLabel'>
-            <p>Fundamentos</p>
-            <Carousel pause>
-              { fundProjects.map((project) => (
-                <Carousel.Item style={ { width: '70%' } }>
-                  <img className='projectCover' src={ project.img } alt='project cover' />
-                  <Carousel.Caption>
-                    <p>{ project.name }</p>
-                    <p>Clique para ver mais...</p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-              )) }
-            </Carousel>
-          </label>
+         <label>
+         <Slider { ...settings } className='carouselMain'>
+           { fundProjects.map((project) => (
+             <div className='itemCarousel'>
+               <img className='projectCover' onClick={ openModal } src={ project.img } name={ project.name } alt='project cover' />
+               <div className='projectTitle'>
+                 <p>{ project.name }</p>
+                 <p>Clique para ver mais...</p>
+               </div>
+             </div>
+           )) }
+         </Slider>
+       </label>
         }
         { front &&
           <label>
-            <p>Front-end</p>
-            <Carousel>
-              { frontProjects.map((project) => (
-                <Carousel.Item style={ { width: '70%' } }>
-                  <img className='projectCover' src={ project.img } alt='project cover' />
-                  <Carousel.Caption>
-                    <p>{ project.name }</p>
-                    <p>Clique para ver mais...</p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-              )) }
-            </Carousel>
-          </label>
+          <Slider { ...settings } className='carouselMain'>
+            { frontProjects.map((project) => (
+              <div className='itemCarousel'>
+                <img className='projectCover' onClick={ openModal } src={ project.img } name={ project.name } alt='project cover' />
+                <div className='projectTitle'>
+                  <p>{ project.name }</p>
+                  <p>Clique para ver mais...</p>
+                </div>
+              </div>
+            )) }
+          </Slider>
+        </label>
         }
         { back &&
-          <label>
-            <p>Back-end</p>
-            <Carousel>
-              { backProjects.map((project) => (
-                <Carousel.Item style={ { width: '70%' } }>
-                  <img className='projectCover' src={ project.img } alt='project cover' />
-                  <Carousel.Caption>
-                    <p>{ project.name }</p>
-                    <p>Clique para ver mais...</p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-              )) }
-            </Carousel>
-          </label>
+         <label>
+         <Slider { ...settings } className='carouselMain'>
+           { backProjects.map((project) => (
+             <div className='itemCarousel'>
+               <img className='projectCover' onClick={ openModal } src={ project.img } name={ project.name } alt='project cover' />
+               <div className='projectTitle'>
+                 <p>{ project.name }</p>
+                 <p>Clique para ver mais...</p>
+               </div>
+             </div>
+           )) }
+         </Slider>
+       </label>
         }
+      </div>
+      <div>
+        <Modal
+          className='modalBox'
+          isOpen={ modalIsOpen }
+          onAfterOpen={ afterOpenModal }
+          onRequestClose={ closeModal }
+          ariaHideApp={ false }
+        >
+          <h2 className='previewTextModal'>Preview</h2>
+          <div className='divIframe'>
+            <iframe className='iframe' title='projectViewer' src={ getUrl }></iframe>
+          </div>
+        </Modal>
       </div>
     </>
   )

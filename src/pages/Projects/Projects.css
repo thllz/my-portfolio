@@ -9,22 +9,99 @@
   flex-direction: column;
   position: relative;
 }
-
-.projectCover{
-  width: 20%;  
+.divBtnsProjects{
+  display: flex;
+  justify-content: center; 
 }
 
-/* .grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  padding: 10px;
+.btnProjectsFilter{
+  background: none;
+	color: var(--font-color);
+	border: none;
+	padding: 10px;
+	font: inherit;
+	font-family: 'Josefin Sans', sans-serif;
+	cursor: pointer;
+	outline: inherit;
+	text-decoration: none;
+  font-size: 150%;
 }
-.grid-item {
-  box-shadow: 0 0 15px rgba(105, 95, 95, 0.326);
-  backdrop-filter: blur(10px);
-  padding: 20px;
-  font-size: 20px;
+.carouselMain {
+  margin-top: 10%;
+  justify-content: center;
+  border-radius: 5px;
   width: 80%;
+  margin-left: 10%;
+}
+.projectCover{
+  display: flex;
+  width: 20%;
+  height: 20%;
+  margin-left: 40%;
+}
+
+.itemCarousel {
+  width: 10%;
+}
+.projectTitle{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  margin-left: 40%;
+}
+.previewTextModal{
+  color: black;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 300%;
+  align-self: center;
+  margin-top: -10%;
+  margin-bottom: 5%;
+  padding: 10px;
+  border-radius: 5px;
+}
+.modalBox {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  margin: 20%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10%;
+  border-radius: 5px;
+}
+
+.ReactModal__Body--open {
+  overflow: hidden;
+} 
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: 100ms step-end;
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+}
+.divIframe {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  overflow: hidden;
+}
+
+.iframe {
+  position: absolute;            
+  top: 10px;
+  left: 10px;
+  width: 100%;
   height: 100%;
-  text-align: center;
-} */
+}
