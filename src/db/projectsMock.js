@@ -157,7 +157,7 @@ export const projectMock = [
     inGroup: 1,
     class: 'frontend',
     star: 1,
-    url: 'O projeto ainda não possui link dedicado',
+    url: 'https://t-recipe.netlify.app/',
   },
   {
     name: 'Docker todo list',
