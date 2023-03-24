@@ -2,7 +2,10 @@ import React, { useState } from 'react'
 import Header from '../../components/Header/Header'
 import './Projects.css'
 import mock from '../../db/projectsMock'
-import Slider from "react-slick";
+// import Slider from "react-slick";
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+
 import Modal from 'react-modal';
 
 export default function Projects() {
@@ -43,18 +46,23 @@ export default function Projects() {
     setBack(true);
   }
 
-  
+
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   const handleGetUrl = (event) => {
-    const { name } = event.target;
-    const project = mock.find((p) => p.name === name);
+    const { innerText } = event.target;
+    const project = mock.find((p) => p.name === innerText);
+    console.log(event);
     if (!project.url.includes('O Projeto')) return setGetUrl(project.url);
   }
 
   const openModal = (event) => {
     handleGetUrl(event)
     setIsOpen(true);
+    // setStar(false);
+    // setFund(false);
+    // setFront(false);
+    // setBack(false);
   }
 
   const afterOpenModal = () => {
@@ -63,16 +71,22 @@ export default function Projects() {
 
   const closeModal = () => {
     setIsOpen(false);
+    setStar(true);
+    setFund(false);
+    setFront(false);
+    setBack(false);
   }
+
   const settings = {
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    pauseOnHover: true,
+    showThumbs: false,
+    showStatus: false,
     centerMode: true,
-    touchMove: false,
+    autoPlay: true,
+    infiniteLoop: true,
+    centerSlidePercentage: 60,
+    transitionTime: 1000,
+    autoFocus: true,
+    showArrows: false,
   };
 
   return (
@@ -87,64 +101,52 @@ export default function Projects() {
           <button className='btnProjectsFilter' onClick={ handleShowBack }>Back-end</button>
         </div>
         { star &&
-          <label>
-            <Slider { ...settings } className='carouselMain'>
-              { starProjects.map((project) => (
-                <div className='itemCarousel'>
-                  <img className='projectCover' onClick={ openModal } src={ project.img } name={ project.name } alt='project cover' />
-                  <div className='projectTitle'>
-                    <p>{ project.name }</p>
-                    <p>Clique para ver mais...</p>
-                  </div>
-                </div>
-              )) }
-            </Slider>
-          </label>
-        }
-        { fund &&
-         <label>
-         <Slider { ...settings } className='carouselMain'>
-           { fundProjects.map((project) => (
-             <div className='itemCarousel'>
-               <img className='projectCover' onClick={ openModal } src={ project.img } name={ project.name } alt='project cover' />
-               <div className='projectTitle'>
-                 <p>{ project.name }</p>
-                 <p>Clique para ver mais...</p>
-               </div>
-             </div>
-           )) }
-         </Slider>
-       </label>
-        }
-        { front &&
-          <label>
-          <Slider { ...settings } className='carouselMain'>
-            { frontProjects.map((project) => (
+          <Carousel { ...settings } className='carouselMain'>
+            { starProjects.map((project) => (
               <div className='itemCarousel'>
-                <img className='projectCover' onClick={ openModal } src={ project.img } name={ project.name } alt='project cover' />
+                <img className='projectCover' onClick={ openModal } src={ project.img } alt='project cover' />
                 <div className='projectTitle'>
-                  <p>{ project.name }</p>
-                  <p>Clique para ver mais...</p>
+                  <p className='legend' onClick={ openModal } name={ project.name }>{ project.name }</p>
                 </div>
               </div>
             )) }
-          </Slider>
-        </label>
+          </Carousel>
+        }
+        { fund &&
+         <Carousel { ...settings } className='carouselMain'>
+         { fundProjects.map((project) => (
+           <div className='itemCarousel'>
+             <img className='projectCover' onClick={ openModal } src={ project.img } alt='project cover' />
+             <div className='projectTitle'>
+               <p className='legend' onClick={ openModal } name={ project.name }>{ project.name }</p>
+             </div>
+           </div>
+         )) }
+       </Carousel>
+        }
+        { front &&
+          <Carousel { ...settings } className='carouselMain'>
+          { frontProjects.map((project) => (
+            <div className='itemCarousel'>
+              <img className='projectCover' onClick={ openModal } src={ project.img } alt='project cover' />
+              <div className='projectTitle'>
+                <p className='legend' onClick={ openModal } name={ project.name }>{ project.name }</p>
+              </div>
+            </div>
+          )) }
+        </Carousel>
         }
         { back &&
-         <label>
-         <Slider { ...settings } className='carouselMain'>
-           { backProjects.map((project) => (
-             <div className='itemCarousel'>
-               <img className='projectCover' onClick={ openModal } src={ project.img } name={ project.name } alt='project cover' />
-               <div className='projectTitle'>
-                 <p>{ project.name }</p>
-                 <p>Clique para ver mais...</p>
-               </div>
-             </div>
-           )) }
-         </Slider>
-       </label>
+          <Carousel { ...settings } className='carouselMain'>
+          { backProjects.map((project) => (
+            <div className='itemCarousel'>
+              <img className='projectCover' onClick={ openModal } src={ project.img } alt='project cover' />
+              <div className='projectTitle'>
+                <p className='legend' onClick={ openModal } name={ project.name }>{ project.name }</p>
+              </div>
+            </div>
+          )) }
+        </Carousel>
         }
       </div>
       <div>
@@ -164,28 +166,3 @@ export default function Projects() {
     </>
   )
 }
-
-// {/* <>
-// <Header />
-// <div className='mainDiv'>
-//   {/* <div class="grid-container"> */}
-//   <Carousel>
-//     { mock.map((project) => (
-//       // <div class="grid-item">
-//       <Carousel.Item>
-//         <div style={{display: 'block', background: 'red'}}>
-//         <p>{ project.name }</p>
-//         <img className='projectCover' src={ project.img } alt='project cover' />
-//         {/* <p>Descrição: { project.desc }</p> */ }
-//         {/* <p>Tags: { project.tags.map((t) => t) }</p> */ }
-//         <p>Clique para ver mais...</p>
-//         </div>
-//       </Carousel.Item>
-//       // </div>
-//     )) }
-//   </Carousel>
-//   {/* </div> */}
-// </div>
-// </>
-// )
-// } */}
