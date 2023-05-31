@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import Header from '../../components/Header/Header'
 import './Projects.css'
 import mock from '../../db/projectsMock'
-// import Slider from "react-slick";
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 import Modal from 'react-modal';
+import Footer from '../../components/Footer/Footer';
 
 export default function Projects() {
 
@@ -163,6 +163,9 @@ export default function Projects() {
           </div>
         </Modal>
       </div>
+      <footer>
+        <Footer />
+      </footer>
     </>
   )
 }

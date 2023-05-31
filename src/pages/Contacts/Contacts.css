@@ -1,141 +1,258 @@
 :root {
 	--hover-color: #C0EEF2;
 	--font-color: #E9F8F9;
+  --footer-color: #2d2d41;
 	--background-color: #18182379;
+	--background-color-ligth: #18182338;
   --font-courier: 'Courier New', Courier, monospace;
 }
 
-.mainDiv {
+.contactsTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: intro-text 0.8s;
+}
+
+.mainDivContacts {
+  display: flex;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(10px);
   margin: auto;
   width: 90%;
-  margin-top: 50px;
   border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: intro-text 1.2s;
 }
 
 .mainContacts {
   display: flex;
   justify-content: space-between;
+  border-radius: 5px;
+  width: 50%;
+  margin-right: 20px;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--footer-color);
+  padding: 10px;
+  margin-bottom: 5%;
 }
 
+.divSocialIcons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 5%;
+
+}
 /* emailInfo */
 
 .emailBox{
   display: flex;
-  gap: 20px;
-  background-color: gray;
+  gap: 10px;
   border-radius: 5px;
   margin: auto;
-  width: 25%;
+  width: 100%;
+  height: 30px;
   justify-content: center;
+  flex-direction: row;
+  color: var(--footer-color);
+  background-color: whitesmoke;
+  align-items: center;
 }
 
 .emailIcon {
-  align-self: center;
-  
+  align-self: center; 
+  color: var(--footer-color);
 }
-.emailText {
-  width: 250px;
-  font-family: var(--font-courier);
 
+.emailText {
+  font-family: var(--font-courier);
+  font-size: 90%;
+  align-self: center;
+  color: var(--footer-color);
+  cursor: pointer;
 }
 
 /* whatsapp info */
 
 .wppBox {
   display: flex;
-  gap: 20px;
-  background-color: gray;
+  gap: 10px;
   border-radius: 5px;
   margin: auto;
-  width: 25%;
+  width: 100%;
   justify-content: center;
+  flex-direction: row;
+  height: 30px;
+  color: var(--footer-color);
+  background-color: whitesmoke;
+  align-items: center;
 }
 
 .wppIcon {
   align-self: center;
+  color: var(--footer-color);
 }
 
 .wppNumber {
   font-family: var(--font-courier);
-  width: 145px;
+  font-size: 90%;
   align-self: center;
+  color: var(--footer-color);
 }
 
+.wppNumber:hover {
+  font-size: 95%;
+  color: var(--hover-color);
+}
 /* socialInfo */
 
 .socialLinks {
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .linkedinBox {
   display: flex;
-  gap: 20px;
-  background-color: gray;
+  gap: 10px;
   border-radius: 5px;
   margin: auto;
-  margin-top: 10px;
-  width: 25%;
+  width: 100%;
   justify-content: center;
+  flex-direction: row;
+  height: 30px;
+  color: var(--footer-color);
+  background-color: whitesmoke;
   align-items: center;
 }
 
-.linkedinBtnContacts:hover {
-	color: var(--hover-color);
+
+.linkedinText {
+  font-family: var(--font-courier);
+  font-size: 90%;
+  align-self: center;
+  color: var(--footer-color);
 }
 
+.linkedinText:hover {
+  font-size: 95%;
+  color: var(--hover-color);
+}
 
-.linkedinBtnContacts {
-	text-decoration: none;
-	color: aliceblue;
+.githubText {
+  font-family: var(--font-courier);
+  font-size: 90%;
+  align-self: center;
+  color: var(--footer-color);
+}
+
+.githubText:hover {
+  font-size: 95%;
+  color: var(--hover-color);
+}
+
+.linkSocial {
+  text-decoration: none;
+	color: var(--footer-color);
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
 	padding: 10px;
-  scale: 100px;
+}
+
+.linkedinBtnContacts:hover {
+  color: var(--hover-color);
+}
+
+.linkedinIcon {
+  align-self: center;
+  color: var(--footer-color);
 }
 
 .githubBox{
   display: flex;
-  gap: 20px;
-  background-color: gray;
+  gap: 10px;
   border-radius: 5px;
   margin: auto;
-  margin-top: 10px;
-  width: 25%;
-  align-items: center;
+  width: 100%;
   justify-content: center;
+  flex-direction: row;
+  height: 30px;
+  color: var(--footer-color);
+  background-color: whitesmoke;
+  align-items: center;
 } 
 
-.githubBtnContacts {
-	text-decoration: none;
-	color: aliceblue;
-	padding: 10px;
+
+.githubIcon {
+  align-self: center;
+  color: var(--footer-color);
 }
 
-.githubBtnContacts:hover {
-	color: var(--hover-color);
+/* form contact */
+
+.mainFormContact {
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
 }
 
 .formTextHeader {
   display: flex;
   align-items: center;
   gap: 20px;
+  color: var(--footer-color);
+  border-radius: 5px;
   justify-content: center;
-  margin: auto;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-.mainFormContact {
-  display: flex;
-  flex-direction: column;
+  padding: 5px;
+  width: 90%;
 }
 
 .formContact {
   display: flex;
+  padding: 10px;
   flex-direction: column;
+  width: 60%;
+  gap: 10px;
+  margin-bottom: 5%;
   justify-content: center;
-  justify-items: center;
-  margin: auto;
-  width: 50%;
+}
+
+.emailInputForm {
+  padding: 5px;
+}
+
+.inputMessageForm {
+  padding: 5px;
+}
+
+.btnEmailInput {
+  width: 100%;
+}
+
+/* animations */
+
+
+
+@keyframes intro-text {
+  from {
+    transform: translateX(-100px);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
