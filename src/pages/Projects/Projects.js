@@ -117,25 +117,21 @@ export default function Projects() {
               </div>
               <div className='cardDetailInfo'>
                 <div className='cardDetailText'>
-                  <h4>Descrição</h4>
-                  <h3>{ dataProjectDetail.desc }</h3>
+                  <h4 className='cardDetailTextTitle'>Descrição</h4>
+                  <h3 className='cardDetailTextDesc'>{ dataProjectDetail.desc }</h3>
                 </div>
+                <div
+                className='divModalDetailImgSubText'
+                >
                 <img
                   onClick={ ({ target }) => openModalIframe(target) }
                   id={ dataProjectDetail.id }
                   className='cardDetailImage'
                   src={ dataProjectDetail.img }
                   alt="Imagem do projeto"
-                />
-                <div className='previewIcon'>
-                  <i className='eyeIcon'>
-                    <AiOutlineEye
-                      onClick={ ({ target }) => openModalDetail(target) }
-                      size={ 40 }
-                    // id={ p.id }
-                    />
-                  </i>
-                </div>
+                  />
+                  <h2 className='modalDetailTextVisualize'>Clique para visualizar</h2>
+                  </div>
               </div>
             </Modal>
           )

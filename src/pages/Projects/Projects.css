@@ -114,13 +114,14 @@
   background-color: var(--footer-color);
   display: flex;
   flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .divHeaderModalDetail {
   display: flex;
   align-items: center;
   width: 100%;
-  
   justify-content: space-between;
   background-color: var(--background-color-ligth);
 }
@@ -129,33 +130,62 @@
   font-family: var(--font-courier);
   display: flex;
   justify-content: center;
+  margin-left: 10px;
 }
 
 .modalDetailIconExit {
   color: red;
   border-radius: 1px;
-  right: 1;
+  margin-right: 10px;
 }
 .modalDetailIconExit:hover {
   color: rgb(240, 74, 74);
   cursor: pointer;
 }
 
+.cardDetailTextTitle {
+  font-family: var(--font-courier);
+  font-size: 20px;
+  height: fit-content;
+  background-color: var(--background-color-ligth);
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+}
+
+.cardDetailTextDesc {
+  background-color: var(--background-color-ligth);
+  border-radius: 5px;
+  padding: 5px;
+}
+
 .cardDetailText {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   padding: 15px;
+  width: 48%;
   font-family: var(--font-courier);
 }
 
-.cardDetailImage {
+.divModalDetailImgSubText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 48%;
-  max-height: 350px;
-  border-radius: 5px;
+}
+.cardDetailImage {
+  border-radius: 0px 0px 0px 5px;
 }
 
+.modalDetailTextVisualize {
+  text-align: center;
+  font-size: 15px;
+  margin: none;
+  font-family: var(--font-courier);
+  height: fit-content;
+}
 .divContentHeaderModalDetail {
   display: flex;
   align-items: center;
