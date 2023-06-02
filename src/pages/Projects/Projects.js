@@ -2,164 +2,166 @@ import React, { useState } from 'react'
 import Header from '../../components/Header/Header'
 import './Projects.css'
 import mock from '../../db/projectsMock'
-import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-
 import Modal from 'react-modal';
 import Footer from '../../components/Footer/Footer';
+import { Card, CardMedia, TextField } from '@mui/material';
+import { AiOutlineCloseSquare, AiOutlineEye, AiOutlineFullscreen } from 'react-icons/ai'
 
 export default function Projects() {
 
-  const [star, setStar] = useState(true);
-  const [fund, setFund] = useState(false);
-  const [front, setFront] = useState(false);
-  const [back, setBack] = useState(false);
   const [getUrl, setGetUrl] = useState('');
 
-  const starProjects = mock.filter((project) => project.star === 1);
-  const fundProjects = mock.filter((project) => project.class === 'fundamentos');
-  const frontProjects = mock.filter((project) => project.class === 'frontend');
-  const backProjects = mock.filter((project) => project.class === 'backend');
+  const dataStar = mock.filter((p) => p.star === 1);
 
-  const handleShowStarred = () => {
-    setStar(true);
-    setFund(false);
-    setFront(false);
-    setBack(false);
-  };
-  const handleShowFund = () => {
-    setStar(false);
-    setFund(true);
-    setFront(false);
-    setBack(false);
-  };
-  const handleShowFront = () => {
-    setStar(false);
-    setFund(false);
-    setFront(true);
-    setBack(false);
-  };
-  const handleShowBack = () => {
-    setStar(false);
-    setFund(false);
-    setFront(false);
-    setBack(true);
-  }
-
-
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [modalDetailOpen, setDetailIsOpen] = React.useState(false);
+  const [modalIframeOpen, setModalIframeOpen] = React.useState(false);
+  const [dataProjectDetail, setDataProjectDetail] = React.useState();
 
   const handleGetUrl = (event) => {
-    const { innerText } = event.target;
-    const project = mock.find((p) => p.name === innerText);
-    console.log(event);
+    const project = dataStar.find((p) => p.id === +event.id);
     if (!project.url.includes('O Projeto')) return setGetUrl(project.url);
   }
 
-  const openModal = (event) => {
-    handleGetUrl(event)
-    setIsOpen(true);
-    // setStar(false);
-    // setFund(false);
-    // setFront(false);
-    // setBack(false);
+
+  const openModalDetail = (event) => {
+    handleSetData(event);
+    setDetailIsOpen(true);
   }
 
-  const afterOpenModal = () => {
+  const openModalIframe = (event) => {
+    handleGetUrl(event);
+    setModalIframeOpen(true);
+    setDetailIsOpen(false);
+  }
+  const handleSetData = (target) => {
+    const getSpecifyData = mock.find((p) => p.id === +target.id)
+    console.log(target.id);
+    setDataProjectDetail(getSpecifyData)
+  }
+
+
+  const afterOpenModalIframe = () => {
 
   }
 
-  const closeModal = () => {
-    setIsOpen(false);
-    setStar(true);
-    setFund(false);
-    setFront(false);
-    setBack(false);
+  const closeModalIframe = () => {
+    setModalIframeOpen(false);
+    setDetailIsOpen(true)
   }
 
-  const settings = {
-    showThumbs: false,
-    showStatus: false,
-    centerMode: true,
-    autoPlay: true,
-    infiniteLoop: true,
-    centerSlidePercentage: 60,
-    transitionTime: 1000,
-    autoFocus: true,
-    showArrows: false,
-  };
+  const afterOpenModalDetail = () => {
+
+  }
+
+  const closeModalDetail = () => {
+    setDetailIsOpen(false);
+  }
 
   return (
     <>
       <Header />
-      <div className='mainDiv'>
-        <h4>Projetos</h4>
-        <div className='divBtnsProjects'>
-          <button className='btnProjectsFilter' onClick={ handleShowStarred }>Favoritos</button>
-          <button className='btnProjectsFilter' onClick={ handleShowFund }>Fundamentos</button>
-          <button className='btnProjectsFilter' onClick={ handleShowFront }>Front-end</button>
-          <button className='btnProjectsFilter' onClick={ handleShowBack }>Back-end</button>
-        </div>
-        { star &&
-          <Carousel { ...settings } className='carouselMain'>
-            { starProjects.map((project) => (
-              <div className='itemCarousel'>
-                <img className='projectCover' onClick={ openModal } src={ project.img } alt='project cover' />
-                <div className='projectTitle'>
-                  <p className='legend' onClick={ openModal } name={ project.name }>{ project.name }</p>
+      <h4 className='titleTextProjects'>Projetos</h4>
+      <div className='mainDivProjects'>
+        {
+          dataStar.map((p) => (
+            <Card
+              key={ p.id }
+              className='cardProject'
+              onClick={ ({ target }) => openModalDetail(target) }
+              id={ p.id }
+            >
+              <CardMedia
+                component='img'
+                className='cardMedia'
+                image={ p.img }
+                id={ p.id }
+                height='150'
+                alt='Imagem do projeto'
+                onClick={ ({ target }) => openModalDetail(target) }
+
+              />
+              <div className='previewIcon'>
+                <i className='eyeIcon'>
+                  <AiOutlineEye
+                    onClick={ ({ target }) => openModalDetail(target) }
+                    size={ 40 }
+                    id={ p.id }
+                  />
+                </i>
+              </div>
+              <h3
+                className='cardHeader'
+                id={ p.id }
+              >
+                { p.name }
+              </h3>
+            </Card>
+          ))
+        }
+      </div >
+      <h1 className='textProjectWillAdd'>Outros projetos serão adicionados em breve...</h1>
+      <div>
+        {
+          dataProjectDetail
+          && (
+            <Modal
+              className='modalDetail'
+              isOpen={ modalDetailOpen }
+              onAfterOpen={ afterOpenModalDetail }
+              onRequestClose={ closeModalDetail }
+              ariaHideApp={ false }
+            >
+              <div className='divHeaderModalDetail'>
+                <h1 className='modalDetailProjectTitle'>{ dataProjectDetail.name }</h1>
+                <AiOutlineCloseSquare size={ 30 } className='modalDetailIconExit' onClick={ closeModalDetail } />
+              </div>
+              <div className='cardDetailInfo'>
+                <div className='cardDetailText'>
+                  <h4>Descrição</h4>
+                  <h3>{ dataProjectDetail.desc }</h3>
+                </div>
+                <img
+                  onClick={ ({ target }) => openModalIframe(target) }
+                  id={ dataProjectDetail.id }
+                  className='cardDetailImage'
+                  src={ dataProjectDetail.img }
+                  alt="Imagem do projeto"
+                />
+                <div className='previewIcon'>
+                  <i className='eyeIcon'>
+                    <AiOutlineEye
+                      onClick={ ({ target }) => openModalDetail(target) }
+                      size={ 40 }
+                    // id={ p.id }
+                    />
+                  </i>
                 </div>
               </div>
-            )) }
-          </Carousel>
+            </Modal>
+          )
         }
-        { fund &&
-         <Carousel { ...settings } className='carouselMain'>
-         { fundProjects.map((project) => (
-           <div className='itemCarousel'>
-             <img className='projectCover' onClick={ openModal } src={ project.img } alt='project cover' />
-             <div className='projectTitle'>
-               <p className='legend' onClick={ openModal } name={ project.name }>{ project.name }</p>
-             </div>
-           </div>
-         )) }
-       </Carousel>
-        }
-        { front &&
-          <Carousel { ...settings } className='carouselMain'>
-          { frontProjects.map((project) => (
-            <div className='itemCarousel'>
-              <img className='projectCover' onClick={ openModal } src={ project.img } alt='project cover' />
-              <div className='projectTitle'>
-                <p className='legend' onClick={ openModal } name={ project.name }>{ project.name }</p>
-              </div>
-            </div>
-          )) }
-        </Carousel>
-        }
-        { back &&
-          <Carousel { ...settings } className='carouselMain'>
-          { backProjects.map((project) => (
-            <div className='itemCarousel'>
-              <img className='projectCover' onClick={ openModal } src={ project.img } alt='project cover' />
-              <div className='projectTitle'>
-                <p className='legend' onClick={ openModal } name={ project.name }>{ project.name }</p>
-              </div>
-            </div>
-          )) }
-        </Carousel>
-        }
-      </div>
-      <div>
         <Modal
-          className='modalBox'
-          isOpen={ modalIsOpen }
-          onAfterOpen={ afterOpenModal }
-          onRequestClose={ closeModal }
+          className='modalIframe'
+          isOpen={ modalIframeOpen }
+          onAfterOpen={ afterOpenModalIframe }
+          onRequestClose={ closeModalIframe }
           ariaHideApp={ false }
         >
-          <h2 className='previewTextModal'>Preview</h2>
+          <div className='divContentHeaderModalDetail'>
+            <h2 className='previewTextModal'>Preview</h2>
+            <div className='divModalDetailExitMaximize'>
+              <a href={ getUrl }>
+                <AiOutlineFullscreen size={ 30 } className='modalDetailIconMaximize' onClick={ ({ target }) => console.log(target) } />
+              </a>
+              <AiOutlineCloseSquare size={ 30 } className='modalIframeIconExit' onClick={ closeModalIframe } />
+            </div>
+          </div>
           <div className='divIframe'>
-            <iframe className='iframe' title='projectViewer' src={ getUrl }></iframe>
+            <iframe
+              className='iframe'
+              title='projectViewer'
+              src={ getUrl }
+            />
           </div>
         </Modal>
       </div>
