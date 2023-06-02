@@ -71,9 +71,10 @@
   padding: 10px;
   top: 35%;
   background-color: var(--footer-color);
-  opacity: 0.5;
+  opacity: 0.8;
   width: 20%;
   height: 10%;
+  border-radius: 3px;
 }
 
 .previewIcon:hover {
